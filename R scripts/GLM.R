@@ -13,17 +13,6 @@ fqaic <- function(model1) {
   print(qaic)
 }
 
-# FUNCTION TO COMPUTE THE Residual square IN QUASI-POISSON MODELS
-fr2 <- function(model1) {
-  pred <- predict(model1,type="response",df)
-  sst <- sum((df$dengue_case - mean(df$dengue_case))^2)
-  sse <- sum((pred - df$dengue_case)^2 , na.rm=TRUE)
-  #find R-Squared
-  rsq <- 1 - sse/sst
-  return(rsq)
-  print(rsq)
-}
-
 #overdispersion
 library(qcc)
 qcc.overdispersion.test(data$Yunnan, type="poisson")
