@@ -32,11 +32,11 @@ ggplot()+geom_point(ynt,mapping=aes(Year,number,group=1),fill='#6F6F6F',size=5,s
   xlab(label = '')
 
 ####Fig1-B
-fig1B<-read_xlsx('Figure.xlsx',sheet='1B')
+fig1B<-read.xlsx('Figure.xlsx',sheet='1B')
 fig1B$Month<-as.Date(fig1B$Month,origin='1900-01-01')
 
 ggplot(fig1B,aes(Month,Incidence,fill=Country)) + geom_line() + theme_bw() +
-  geom_ribbon(mapping = aes(ymax=Incidence2,ymin=0,fill=Country),alpha=0.6)+
+  geom_ribbon(mapping = aes(ymax=Incidence,ymin=0,fill=Country),alpha=0.6)+
   theme(axis.text.x = element_text(vjust=1,hjust = 0.5),
         axis.line = element_line(colour = "black"),
         panel.grid.minor  = element_blank(),
